@@ -73,7 +73,7 @@ def file_organizer(path):
 
 client = AsyncOpenAI(
     api_key=gemini_api_key,
-    base_url="https://openrouter.ai/api/v1",
+    base_url=r"https://openrouter.ai/api/v1",
 )
 
 model = OpenAIChatCompletionsModel(
