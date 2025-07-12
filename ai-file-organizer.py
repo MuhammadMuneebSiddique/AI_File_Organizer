@@ -31,7 +31,7 @@ def file_organizer(path):
                 category["applications"] = []
             elif os.path.splitext(file)[1].lower() in [".zip", ".rar", ".7z", ".tar", ".gz"]:
                 category["archives"] = []
-            elif not os.path.isdir(f"{path}\{file}"):
+            elif not os.path.isdir(fr"{path}\{file}"):
                 category["other"] = []
 
         # put items in categorize wise object
@@ -48,25 +48,25 @@ def file_organizer(path):
                 category["applications"].append(file)
             elif os.path.splitext(file)[1].lower() in [".zip", ".rar", ".7z", ".tar", ".gz"]:
                 category["archives"].append(file)
-            elif not os.path.isdir(f"{path}\{file}"):
+            elif not os.path.isdir(fr"{path}\{file}"):
                 category["other"].append(file)
 
         if category:
             for category_items in category.keys():
                 if category[category_items]:
-                    if os.path.exists(path+f"\{category_items}"):
+                    if os.path.exists(path+fr"\{category_items}"):
                         for items in category[category_items]:
-                            shutil.move(f"{path}\{items}",f"{path}\{category_items}\{items}")
+                            shutil.move(fr"{path}\{items}",fr"{path}\{category_items}\{items}")
                             # shutil.move(path+f"\{items}",fr"C:\Users\LENOVO\Downloads\{items}")
                         # st.success(f"Successfully Transfer {category_items.capitalize()} Files in {category_items.capitalize()} Folder")
                         print(f"Successfully Transfer {category_items.capitalize()} Files {len(category[category_items])}")
                     else:
-                        os.mkdir(f"{path}\{category_items}")
+                        os.mkdir(fr"{path}\{category_items}")
                         for items in category[category_items]:
-                            shutil.move(f"{path}\{items}",f"{path}\{category_items}\{items}")
+                            shutil.move(fr"{path}\{items}",fr"{path}\{category_items}\{items}")
                             # shutil.move(path+f"\{items}",fr"C:\Users\LENOVO\Downloads\{items}")
                         # st.success(f"Successfully Transfer {category_items.capitalize()} Files in {category_items.capitalize()} Folder")
-                        print(f"Successfully Transfer {category_items.capitalize()} Files {len(category[category_items])}")
+                        print(fr"Successfully Transfer {category_items.capitalize()} Files {len(category[category_items])}")
     else:
         print("Path doesn't exists..")
 
