@@ -73,12 +73,12 @@ def file_organizer(path):
 
 client = AsyncOpenAI(
     api_key=gemini_api_key,
-    base_url="https://openrouter.ai/api/v1"
+    base_url="https://openrouter.ai/api/v1",
 )
 
 model = OpenAIChatCompletionsModel(
     model="google/gemini-2.5-flash-lite-preview-06-17",
-    openai_client=client
+    openai_client=client,
 )
 
 config = RunConfig(
